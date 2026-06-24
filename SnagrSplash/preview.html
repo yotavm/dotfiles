@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Snagr Dining — Splash Preview</title>
+<style>
+  :root { --brand:#121214; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    min-height:100vh; display:grid; place-items:center;
+    background:#3a3a3c; font-family:Georgia, 'Times New Roman', serif;
+  }
+  /* iPhone frame */
+  .phone {
+    width:300px; height:620px; border-radius:46px; background:#fafafa;
+    position:relative; overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.45), inset 0 0 0 10px #111;
+  }
+  .statusbar {
+    position:absolute; top:14px; left:0; right:0; display:flex;
+    justify-content:space-between; padding:0 28px; font-size:13px;
+    color:#111; font-family:-apple-system, system-ui, sans-serif; font-weight:600;
+  }
+  .stage {
+    position:absolute; inset:0; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:82px;
+  }
+  .plate { position:relative; animation:breathe 2.2s ease-in-out infinite alternate; }
+
+  /* App-icon tile */
+  .tile {
+    width:130px; height:130px; border-radius:32px; background:#fff;
+    display:grid; place-items:center;
+    box-shadow:0 18px 28px rgba(0,0,0,.12);
+    transform:scale(.55); opacity:0;
+    animation:pop .7s cubic-bezier(.2,1.3,.5,1) .05s forwards;
+  }
+  .tile .s {
+    font-size:82px; font-weight:900; color:var(--brand); line-height:1;
+    transform:scale(.7); opacity:0;
+    animation:pop .6s cubic-bezier(.2,1.3,.5,1) .18s forwards;
+  }
+
+  /* Steam */
+  .steam { position:absolute; top:-78px; left:50%; transform:translateX(-50%);
+           display:flex; gap:14px; }
+  .steam span {
+    width:5px; height:46px; border-radius:5px;
+    background:linear-gradient(to top, rgba(18,18,20,.30), rgba(18,18,20,0));
+    opacity:0; animation:rise 2s ease-out infinite;
+  }
+  .steam span:nth-child(2){ animation-delay:.35s; }
+  .steam span:nth-child(3){ animation-delay:.7s; }
+
+  /* Fork & knife accent */
+  .accent {
+    position:absolute; bottom:-58px; left:50%;
+    width:46px; height:46px; border-radius:50%; background:#fff;
+    display:grid; place-items:center; font-size:20px;
+    box-shadow:0 6px 14px rgba(0,0,0,.10);
+    transform:translateX(-50%) scale(.2) rotate(-120deg); opacity:0;
+    animation:pop .6s cubic-bezier(.2,1.3,.5,1) .4s forwards;
+    font-family:-apple-system, system-ui, sans-serif;
+  }
+
+  /* Wordmark */
+  .word { text-align:center; opacity:0; transform:translateY(16px);
+          animation:fadeup .6s ease-out .55s forwards; }
+  .word .name { font-size:26px; font-weight:900; color:var(--brand); }
+  .word .sub  { font-size:11px; letter-spacing:5px; font-weight:600;
+                color:rgba(18,18,20,.55); font-family:-apple-system, system-ui, sans-serif; }
+
+  .homebar { position:absolute; bottom:9px; left:50%; transform:translateX(-50%);
+             width:120px; height:5px; border-radius:3px; background:#111; }
+
+  @keyframes pop    { to { transform:scale(1) rotate(0); opacity:1; } }
+  @keyframes fadeup { to { transform:translateY(0); opacity:1; } }
+  @keyframes breathe{ from { transform:translateY(6px);} to { transform:translateY(-6px);} }
+  @keyframes rise {
+    0%   { opacity:0; transform:translateY(0)   scaleY(.6); }
+    20%  { opacity:.9; }
+    100% { opacity:0; transform:translateY(-30px) scaleY(1.1); }
+  }
+</style>
+</head>
+<body>
+  <div class="phone">
+    <div class="statusbar"><span>4:01</span><span>5G ▣</span></div>
+    <div class="stage">
+      <div class="plate">
+        <div class="steam"><span></span><span></span><span></span></div>
+        <div class="tile"><div class="s">S</div></div>
+        <div class="accent">🍴</div>
+      </div>
+      <div class="word">
+        <div class="name">Snagr</div>
+        <div class="sub">DINING</div>
+      </div>
+    </div>
+    <div class="homebar"></div>
+  </div>
+</body>
+</html>
