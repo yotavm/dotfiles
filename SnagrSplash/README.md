@@ -4,14 +4,17 @@ A self-contained, dependency-free SwiftUI splash screen for **Snagr Dining**.
 
 ![preview](splash-preview.gif)
 
-## The animation ("plated reveal")
+## The animation ("cloche reveal")
 
-1. The white **app-icon tile** springs in with a soft bounce + drop shadow.
-2. The serif **“S”** logo scales into place.
-3. **Steam** wisps rise above the tile in a gentle loop — the "hot food" beat.
-4. A **fork & knife** accent rotates in.
+1. A silver **dome (cloche)** sits at center over a hidden app-icon tile.
+2. The dome **lifts away and fades** — like a dish being served.
+3. As it lifts, the **tile + serif “S”** spring up and a **burst of food**
+   (🍣🍔🍜🥗🍤🍩🍕) sprays outward, then clears.
+4. **Steam** wisps rise above the tile in a gentle loop — the "hot food" beat.
 5. The **“Snagr / DINING”** wordmark fades up.
-6. The whole plate **breathes** (subtle continuous bob).
+6. The plate **breathes** (subtle continuous bob) at rest.
+
+> Requires iOS 16+ (`UnevenRoundedRectangle`).
 
 Everything is native SwiftUI — it runs in Xcode Previews, adds **zero** binary
 weight, scales crisply at any resolution, and needs no `.json` asset.
@@ -55,9 +58,11 @@ splash or trigger navigation.
 - **Brand color** — the `brand` constant in `SnagrSplashView`.
 - **Logo** — swap `Text("S")` for `Image("LogoMark")` to use your exact glyph
   from the screenshot instead of the system serif "S".
-- **Timing** — the `runIntro()` timeline (spring response, loop durations, the
-  2.4s `onFinished` delay).
-- **Steam density** — add/remove `steamLine(delay:)` calls in `SteamView`.
+- **Timing** — the `runIntro()` timeline (spring response, lift curve, the
+  2.7s `onFinished` delay).
+- **Food** — the `items` array in `FoodBurst` (swap emojis, change spray
+  targets/rotation, add or remove particles).
+- **Cloche** — `ClocheView` (dome gradient, size, knob).
 
 ## Prefer a designer-authored Lottie file?
 
